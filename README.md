@@ -1,24 +1,20 @@
 # Laravel Recaptcha V3
 
-
-<p align="center">
-<a href="https://github.com/josiasmontag/laravel-recaptchav3/actions/workflows/run-tests.yml"><img src="https://github.com/josiasmontag/laravel-recaptchav3/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/josiasmontag/laravel-recaptchav3"><img src="https://poser.pugx.org/josiasmontag/laravel-recaptchav3/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/josiasmontag/laravel-recaptchav3"><img src="https://poser.pugx.org/josiasmontag/laravel-recaptchav3/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/josiasmontag/laravel-recaptchav3"><img src="https://poser.pugx.org/josiasmontag/laravel-recaptchav3/license.svg" alt="License"></a>
+<p>
+<a href="https://github.com/khoa002/laravel-recaptchav3/actions/workflows/run-tests.yml"><img src="https://github.com/khoa002/laravel-recaptchav3/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
 </p>
 
-Laravel package for Google's [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3). This is a lightweight package which focuses on the backend validation of Recaptcha V3 captchas.
+Laravel package for Google's [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3). This is a lightweight
+package which focuses on the backend validation of Recaptcha V3 captchas.
 
 ## Installation
 
-
 To get started, use Composer to add the package to your project's dependencies:
 
-    composer require josiasmontag/laravel-recaptchav3
+    composer require khoa002/laravel-recaptchav3
 
-
-Add `RECAPTCHAV3_SITEKEY` and `RECAPTCHAV3_SECRET` to your `.env` file. (You can get them [here](https://www.google.com/recaptcha/admin#list))
+Add `RECAPTCHAV3_SITEKEY` and `RECAPTCHAV3_SECRET` to your `.env` file. (You can get
+them [here](https://www.google.com/recaptcha/admin#list))
 
 ```
 RECAPTCHAV3_SITEKEY=sitekey
@@ -26,6 +22,7 @@ RECAPTCHAV3_SECRET=secret
 ```
 
 Optionally, you can publish the config file:
+
 ```
 php artisan vendor:publish --provider="Lunaweb\RecaptchaV3\Providers\RecaptchaV3ServiceProvider"
 ```
@@ -34,7 +31,8 @@ php artisan vendor:publish --provider="Lunaweb\RecaptchaV3\Providers\RecaptchaV3
 
 #### Init Recaptcha Javascript
 
-Recaptcha v3 works best when it is loaded on every page to get the most context about interactions. Therefore, add to your header or footer template:
+Recaptcha v3 works best when it is loaded on every page to get the most context about interactions. Therefore, add to
+your header or footer template:
 
 ```php
 {!! RecaptchaV3::initJs() !!}
@@ -42,20 +40,22 @@ Recaptcha v3 works best when it is loaded on every page to get the most context 
 
 #### Forms
 
-``RecaptchaV3::field($action, $name='g-recaptcha-response')`` creates an invisible input field that gets filled with a Recaptcha token on load.
-
+``RecaptchaV3::field($action, $name='g-recaptcha-response')`` creates an invisible input field that gets filled with a
+Recaptcha token on load.
 
 ```html
+
 <form method="post" action="/register">
     {!! RecaptchaV3::field('register') !!}
-    <input type="submit" value="Register"></input>
+    <input type="submit" value="Register" />
 </form>
 
 ```
 
 #### Validation
 
-Add the `recaptchav3` validator to the rules array. The rule accepts two parameters: The `action` name and the minimum required `score` (defaults to 0.5).
+Add the `recaptchav3` validator to the rules array. The rule accepts two parameters: The `action` name and the minimum
+required `score` (defaults to 0.5).
 
 ```php
 $validate = Validator::make(Input::all(), [
@@ -96,12 +96,18 @@ Add the following values to the `custom` array in the `validation` language file
 #### Hiding the ReCAPTCHA Badge
 
 Add to your CSS file:
+
 ```css
-.grecaptcha-badge { visibility: hidden !important; }
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
 ```
 
 #### Localization
-By default, the package follows the default application locale, which is defined in `config/app.php`. If you want to change this behavior, you can specify what locale to use by adding a new environment variable : 
+
+By default, the package follows the default application locale, which is defined in `config/app.php`. If you want to
+change this behavior, you can specify what locale to use by adding a new environment variable :
+
 ```
 RECAPTCHAV3_LOCALE=ar
 ```
