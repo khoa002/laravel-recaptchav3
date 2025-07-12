@@ -1,7 +1,10 @@
 # Laravel Recaptcha V3
 
-<p>
+<p align="center">
 <a href="https://github.com/khoa002/laravel-recaptchav3/actions/workflows/run-tests.yml"><img src="https://github.com/khoa002/laravel-recaptchav3/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/khoa002/laravel-recaptchav3"><img src="https://poser.pugx.org/khoa002/laravel-recaptchav3/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/khoa002/laravel-recaptchav3"><img src="https://poser.pugx.org/khoa002/laravel-recaptchav3/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/khoa002/laravel-recaptchav3"><img src="https://poser.pugx.org/khoa002/laravel-recaptchav3/license.svg" alt="License"></a>
 </p>
 
 Laravel package for Google's [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3). This is a lightweight
@@ -47,7 +50,7 @@ Recaptcha token on load.
 
 <form method="post" action="/register">
     {!! RecaptchaV3::field('register') !!}
-    <input type="submit" value="Register" />
+    <input type="submit" value="Register"/>
 </form>
 
 ```
